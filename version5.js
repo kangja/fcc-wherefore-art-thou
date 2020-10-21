@@ -4,24 +4,15 @@
 
 function whatIsInAName(collection, source) {
   const keys = Object.keys(source)
-
-  const arr = collection.filter(obj => {
-    let hasAllKeyValuePairs = true;
-    for (const key of keys) {
+ 
+  return collection.filter(obj => (
+    keys.reduce((acc, key) => {
       if (obj[key] !== source[key]) {
-        hasAllKeyValuePairs = false;
-        break;
-      }
-    }
-    if (hasAllKeyValuePairs) {
-      return true; //if it has key value pairs, keep it in the array. 
-    } else {
-      return false;
-    }
-  });
-  return arr;
+        return false;
+      } 
+      return acc;
+    }, true) 
+  ));
 }
-
-// whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
 console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 }));

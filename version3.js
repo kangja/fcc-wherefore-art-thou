@@ -5,7 +5,7 @@
 function whatIsInAName(collection, source) {
   const keys = Object.keys(source)
 
-  const arr = collection.filter(obj => {
+  return collection.filter(obj => {
     let hasAllKeyValuePairs = true;
     for (const key of keys) {
       if (obj[key] !== source[key]) {
@@ -13,13 +13,8 @@ function whatIsInAName(collection, source) {
         break;
       }
     }
-    if (hasAllKeyValuePairs) {
-      return true; //if it has key value pairs, keep it in the array. 
-    } else {
-      return false;
-    }
+   return hasAllKeyValuePairs
   });
-  return arr;
 }
 
 // whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });

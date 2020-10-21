@@ -4,24 +4,19 @@
 
 function whatIsInAName(collection, source) {
   const keys = Object.keys(source)
-
-  const arr = collection.filter(obj => {
-    let hasAllKeyValuePairs = true;
-    for (const key of keys) {
+ 
+  return collection.filter(obj => {
+    return keys.reduce((acc, key) => {
       if (obj[key] !== source[key]) {
-        hasAllKeyValuePairs = false;
-        break;
-      }
-    }
-    if (hasAllKeyValuePairs) {
-      return true; //if it has key value pairs, keep it in the array. 
-    } else {
-      return false;
-    }
-  });
-  return arr;
-}
+        return false; //if they don't equal, then set our accumular as false. Otherwise return the value of the accumulator. 
+      } 
+      return acc;
+    }, true); //reduce is a method of an array and it reduces to whatever we wanted it to be. We could reduce it to a number, boolean, array, object, or whatever we want. 
 
-// whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+    //Reduce takes in parameters just like a function as the first argument and as second argument, you must set an initial value. 
+
+    //first parameter is called the accumulator/acc and the second parameter is the argument that we are looping over. Accumulator is like a memory variable that it knows what it is as we progress in the loop of the keys arrays. It keeps track of what the value was. 
+  });
+}
 
 console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 }));
