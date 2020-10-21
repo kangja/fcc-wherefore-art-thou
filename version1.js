@@ -8,12 +8,26 @@ function whatIsInAName(collection, source) {
   const keys = Object.keys(source)//built in function
   // console.log(keys);
   // [ 'last' ]
+  // [ 'apple', 'cookie' ]
+
+// we have to loop through all of our keys to make sure it exists within the object. The value of it is the same as that of the source. 
 
   for (const obj of collection) { //each element is called object 
+    let hasAllKeyValuePairs = true //need a boolean variable to keep track of whether current object in question is that we are looping over contains all the key value pairs within the source or not. 
 
+    // we will initialize this as true and loop through all the keys and then do a check. 
+
+    for (const key of keys) {
+      if (obj[key] !== source[key]) {
+        hasAllKeyValuePairs = false;
+        break; //will break out of the for loop
+      }
+    }
   }
  
   return arr;
 }
 
 // whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 })
