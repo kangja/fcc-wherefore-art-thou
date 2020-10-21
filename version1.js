@@ -5,11 +5,15 @@
 function whatIsInAName(collection, source) {
   const arr = [];
 
-  for (const obj { //each element is called object 
+  const keys = Object.keys(source)//built in function
+  // console.log(keys);
+  // [ 'last' ]
+
+  for (const obj of collection) { //each element is called object 
 
   }
  
   return arr;
 }
 
-whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+// whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
