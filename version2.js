@@ -3,33 +3,15 @@
 // For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.
 
 function whatIsInAName(collection, source) {
-  const arr = [];
+  const keys = Object.keys(source)
 
-  const keys = Object.keys(source)//built in function
-  // console.log(keys);
-  // [ 'last' ]
-  // [ 'apple', 'cookie' ]
+  const arr = collection.filter(el => {
 
-// we have to loop through all of our keys to make sure it exists within the object. The value of it is the same as that of the source. 
+  } ) //if it's true, it stays in the filter, but if it's false it stays OUT of the filter. 
 
-  for (const obj of collection) { //each element is called object 
-    let hasAllKeyValuePairs = true //need a boolean variable to keep track of whether current object in question is that we are looping over contains all the key value pairs within the source or not. 
-
-    // we will initialize this as true and loop through all the keys and then do a check. 
-
-    for (const key of keys) {
-      if (obj[key] !== source[key]) {
-        hasAllKeyValuePairs = false;
-        break; //will break out of the for loop
-      }
-    }
-    if (hasAllKeyValuePairs) {
-      arr.push(obj)
-    }
-  }
  
   return arr;
-  // [ { apple: 1, bat: 2, cookie: 2 } ]
+
 }
 
 // whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
